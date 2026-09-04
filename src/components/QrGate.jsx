@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 
 const menuUrl = `${window.location.origin}/menu`;
@@ -20,9 +19,6 @@ export default function QrGate() {
           title="QR code to open the Sai Food Hub menu"
         />
       </div>
-      <a className="menu-entry-link" href="/menu">
-        Open menu on this device <ArrowRight size={20} />
-      </a>
     </main>
   );
 }
