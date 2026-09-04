@@ -7,7 +7,7 @@ import Hero from "./components/Hero.jsx";
 import MenuCard from "./components/MenuCard.jsx";
 import { fallbackData } from "./data/fallback.js";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function App() {
   const [data, setData] = useState(fallbackData);
@@ -19,6 +19,15 @@ export default function App() {
 
   useEffect(() => {
     let ignore = false;
+
+    if (!API_URL) {
+      const items =
+        activeCategory === "all"
+          ? fallbackData.items
+          : fallbackData.items.filter((item) => item.category === activeCategory);
+      setData({ ...fallbackData, items });
+      return undefined;
+    }
 
     fetch(`${API_URL}/menu?category=${activeCategory}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(response)))
