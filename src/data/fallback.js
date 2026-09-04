@@ -1,8 +1,9 @@
 const restaurant = {
   name: "SAI FOOD HUB",
   location: "Table 04",
-  serviceNote: "Fresh food, made for you",
-  heroImage: "/hero_image.jpg"
+  address: "Hanspal Canal Road, Bhubaneswar",
+  callNumber: "7853087041",
+  whatsappNumber: "9937873528"
 };
 
 const categories = [

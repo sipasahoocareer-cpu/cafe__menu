@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import CartBar from "./components/CartBar.jsx";
 import CategoryTabs from "./components/CategoryTabs.jsx";
-import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import MenuCard from "./components/MenuCard.jsx";
 import { fallbackData, getMenuImage } from "./data/fallback.js";
@@ -94,7 +93,6 @@ export default function App() {
 
   return (
     <main className="phone-shell">
-      <Header restaurant={data.restaurant} cartCount={totals.totalItems} />
       {activeSection === "orders" ? (
         <section className="account-panel">
           <span className="panel-kicker">Table order</span>
@@ -128,7 +126,7 @@ export default function App() {
         </section>
       ) : (
         <>
-          {activeSection === "home" && <Hero searchQuery={searchQuery} onSearch={setSearchQuery} />}
+          {activeSection === "home" && <Hero restaurant={data.restaurant} searchQuery={searchQuery} onSearch={setSearchQuery} />}
           {activeSection === "home" && (
             <CategoryTabs
               dietaryFilters={data.dietaryFilters}
