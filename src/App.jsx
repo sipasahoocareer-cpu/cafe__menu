@@ -54,7 +54,7 @@ export default function App() {
     const normalizedQuery = searchQuery.trim().toLowerCase();
     return data.items.filter((item) => {
       const matchesDiet = activeDiet === "all" || item.type === activeDiet;
-      const searchableText = `${item.name} ${item.category} ${item.type} ${item.description}`.toLowerCase();
+      const searchableText = `${item.name} ${item.category} ${item.type}`.toLowerCase();
       return matchesDiet && (!normalizedQuery || searchableText.includes(normalizedQuery));
     });
   }, [activeDiet, data.items, searchQuery]);

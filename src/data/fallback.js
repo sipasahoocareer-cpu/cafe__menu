@@ -22,16 +22,6 @@ const dietaryFilters = [
   { id: "non-veg", label: "Non-veg" }
 ];
 
-const descriptions = {
-  burgers: "A freshly toasted bun layered with a satisfying cafe-style filling.",
-  sandwiches: "Toasted bread packed with a generous, savoury filling and fresh crunch.",
-  momo: "Steamed or fried dumplings filled with a warmly spiced savoury mix.",
-  noodles: "Wok-tossed noodles with aromatic seasoning and colourful fresh toppings.",
-  rice: "Fragrant rice tossed with classic cafe seasoning and a hearty topping.",
-  rolls: "A warm, soft roll wrapped around a flavourful, freshly prepared filling.",
-  combos: "A generous cafe pairing made for sharing and enjoying together."
-};
-
 const imagePath = (name) => `/menu-images/${name}.webp`;
 
 const itemImages = {
@@ -124,6 +114,7 @@ const generatedImageIds = new Set([
   "lachha-paratha-chilli-chicken",
   "lachha-paratha-chicken-manchurian",
   "chicken-salad",
+  "chicken-wings-5-pcs",
   "paneer-noodles",
   "veg-hakka-noodles",
   "mixed-veg-noodles",
@@ -175,7 +166,7 @@ const items = [
   ["veg-makhani-burst-burger", "Veg Makhani Burst Burger", "burger", 210, "veg"],
   ["chicken-crispy-double-burst-burger", "Chicken Crispy Double Burst Burger", "burger", 310, "non-veg"],
   ["chicken-peri-peri-meal-deal", "Chicken Peri Peri Meal Deal", "burger", 807, "non-veg"],
-  ["family-combo-chicken-cheese", "Family Combo Chicken Cheese", "burger", null, "non-veg"],
+  ["family-combo-chicken-cheese", "Family Combo Chicken Cheese", "burger", 790, "non-veg"],
   ["peri-peri-makhani-tandoori-fries", "Peri Peri Makhani & Tandoori French Fries + Cold Drink", "burger-combo", 350, "veg"],
   ["chicken-sandwich", "Chicken Sandwich", "sandwich", 155, "non-veg"],
   ["veg-sandwich", "Veg Sandwich", "sandwich", 120, "veg"],
@@ -221,11 +212,12 @@ const items = [
   ["lachha-paratha-manchurian", "Lachha Paratha with Manchurian", "paratha-combo", 210, "veg"],
   ["lachha-paratha-chilli-chicken", "Lachha Paratha with Chilli Chicken", "paratha-combo", 210, "non-veg"],
   ["lachha-paratha-chicken-manchurian", "Lachha Paratha with Chicken Manchurian", "paratha-combo", 210, "non-veg"],
-  ["chicken-drumstick", "Chicken Drumstick", "chicken-starters", null, "non-veg"],
-  ["chicken-lollipop", "Chicken Lollipop", "chicken-starters", null, "non-veg"],
+  ["chicken-drumstick", "Chicken Drumstick (4 pcs)", "chicken-starters", 260, "non-veg"],
+  ["chicken-lollipop", "Chicken Lollipop (4 pcs)", "chicken-starters", 150, "non-veg"],
   ["chicken-pakoda", "Chicken Pakoda", "chicken-starters", null, "non-veg"],
-  ["sukha-chicken-wings", "Sukha Chicken Wings", "chicken-starters", null, "non-veg"],
-  ["chicken-salad", "Chicken Salad", "chicken-starters", null, "non-veg"],
+  ["sukha-chicken-wings", "Sukha Chicken", "chicken-starters", 150, "non-veg"],
+  ["chicken-wings-5-pcs", "Chicken Wings (5 pcs)", "chicken-starters", 180, "non-veg"],
+  ["chicken-salad", "Chicken Salad", "chicken-starters", 250, "non-veg"],
   ["crispy-veg-burger", "Crispy Veg Burger", "burger-special", 110, "veg"],
   ["crispy-veg-double-cheese", "Crispy Veg Double Patty with Double Cheese Slice", "burger-special", 159, "veg"],
   ["veg-burger-peri-peri-fries", "Veg Burger + Peri Peri Fries", "burger-special", 140, "veg"],
@@ -242,8 +234,7 @@ const items = [
   category,
   price,
   type,
-  image: getMenuImage({ id, name, category, type }),
-  description: descriptions[category] || "A freshly prepared cafe favourite made to order."
+  image: getMenuImage({ id, name, category, type })
 }));
 
 export const fallbackData = { restaurant, categories, dietaryFilters, items };

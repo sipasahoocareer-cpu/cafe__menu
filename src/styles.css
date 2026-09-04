@@ -121,17 +121,13 @@ button {
   }
 
   .dish-info {
-    min-height: 170px;
+    min-height: 130px;
     padding: 18px;
   }
 
   .dish-info h3 {
     margin-bottom: 12px;
     font-size: 24px;
-  }
-
-  .dish-description {
-    max-width: 225px;
   }
 
 }
@@ -578,7 +574,7 @@ button {
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
-  min-height: 180px;
+  min-height: 140px;
   gap: 12px;
   align-items: center;
   padding: 14px 14px 14px 20px;
@@ -590,14 +586,6 @@ button {
   line-height: 1.05;
 }
 
-.dish-description {
-  max-width: 260px;
-  margin: -7px 0 12px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.35;
-}
-
 .dish-info p {
   display: inline-flex;
   align-items: center;
@@ -605,12 +593,6 @@ button {
   margin: 0;
   color: #392111;
   font-size: 24px;
-}
-
-.dish-info p.dish-description {
-  display: block;
-  color: var(--muted);
-  font-size: 14px;
 }
 
 .dish-info p svg {
