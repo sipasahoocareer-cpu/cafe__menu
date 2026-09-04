@@ -128,7 +128,7 @@ export default function App() {
         </section>
       ) : (
         <>
-          {activeSection === "home" && <Hero restaurant={data.restaurant} searchQuery={searchQuery} onSearch={setSearchQuery} />}
+          {activeSection === "home" && <Hero searchQuery={searchQuery} onSearch={setSearchQuery} />}
           {activeSection === "home" && (
             <CategoryTabs
               dietaryFilters={data.dietaryFilters}

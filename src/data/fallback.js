@@ -31,7 +31,7 @@ const itemImages = {
   "masala-maggi": imagePath("maggi"),
   "chicken-chilli": imagePath("chilli-chicken"),
   "paneer-chilli": imagePath("chilli-paneer"),
-  "lachha-paratha-chilli-paneer": imagePath("lachha-paratha"),
+  "lachha-paratha-chilli-paneer": imagePath("lachha-paratha-chilli-paneer"),
   "chicken-sandwich": imagePath("grilled-sandwich"),
   "chicken-drumstick": imagePath("chicken-drumstick"),
   "chicken-pakoda": imagePath("chicken-pakoda"),

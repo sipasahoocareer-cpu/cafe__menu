@@ -78,24 +78,15 @@ button {
   }
 
   .hero-copy {
-    min-height: 360px;
+    min-height: inherit;
     padding: 28px 20px;
     justify-content: flex-end;
     background: linear-gradient(180deg, rgba(255, 249, 238, 0.12), rgba(255, 249, 238, 0.82));
   }
 
-  .hero-copy h2 {
-    max-width: 330px;
-    font-size: 42px;
-  }
-
-  .hero-copy > span {
-    font-size: 16px;
-  }
-
   .menu-search {
     min-height: 56px;
-    margin-top: 18px;
+    margin-top: 0;
     border-radius: 16px;
     padding: 0 16px;
   }
@@ -243,7 +234,8 @@ button {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  min-height: inherit;
   max-width: 620px;
   padding: 42px 34px;
 }
@@ -260,36 +252,13 @@ button {
   pointer-events: none;
 }
 
-.hero-copy p {
-  position: relative;
-  margin: 0 0 12px;
-  color: var(--deep-orange);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.hero-copy h2 {
-  position: relative;
-  max-width: 500px;
-  margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(35px, 5vw, 52px);
-  line-height: 1.08;
-}
-
-.hero-copy > span {
-  color: var(--muted);
-  font-size: 18px;
-}
-
 .menu-search {
   position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
   max-width: 500px;
-  margin-top: 28px;
+  margin-top: 0;
   padding: 0 20px;
   min-height: 62px;
   border: 1px solid rgba(255, 255, 255, 0.85);
@@ -865,13 +834,8 @@ button {
   }
 
   .hero-copy {
-    min-height: 300px;
+    min-height: inherit;
     padding: 30px 24px;
-  }
-
-  .hero-copy p {
-    font-size: 12px;
-    letter-spacing: 3px;
   }
 
   .hero-ctas {
