@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ChevronRight } from "lucide-react";
-import { QRCodeSVG } from "qrcode.react";
 import CartBar from "./components/CartBar.jsx";
 import CategoryTabs from "./components/CategoryTabs.jsx";
 import Header from "./components/Header.jsx";
@@ -9,7 +8,6 @@ import MenuCard from "./components/MenuCard.jsx";
 import { fallbackData } from "./data/fallback.js";
 
 const API_URL = import.meta.env.VITE_API_URL;
-const MENU_URL = import.meta.env.VITE_MENU_URL || "https://kitchen-pied.vercel.app";
 
 export default function App() {
   const [data, setData] = useState(fallbackData);
@@ -135,25 +133,6 @@ export default function App() {
               onDietChange={setActiveDiet}
             />
           )}
-          {activeSection === "home" && (
-            <section className="menu-qr" aria-labelledby="menu-qr-title">
-              <div className="qr-code">
-                <QRCodeSVG
-                  value={MENU_URL}
-                  size={168}
-                  level="H"
-                  marginSize={1}
-                  title="QR code for the cafe menu"
-                />
-              </div>
-              <div className="qr-copy">
-                <span>Share the menu</span>
-                <h2 id="menu-qr-title">Scan to view our menu</h2>
-                <p>Point your phone camera at the code to open the latest menu.</p>
-              </div>
-            </section>
-          )}
-
           <section className="popular-section">
             <div className="section-title">
               <h2>{activeSection === "menu" ? "Full cafe menu" : "Choose your table favourites"}</h2>
