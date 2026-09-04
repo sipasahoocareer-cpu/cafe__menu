@@ -3,6 +3,7 @@ import React from "react";
 export default function MenuCard({ item }) {
   return (
     <article className="menu-card">
+      <img className="dish-image" src={item.image} alt={item.name} loading="lazy" />
       <div className="dish-info">
         <div>
           <h3>{item.name}</h3>

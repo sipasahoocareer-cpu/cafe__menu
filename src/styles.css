@@ -121,7 +121,7 @@ button {
   }
 
   .dish-info {
-    min-height: 190px;
+    min-height: 170px;
     padding: 18px;
   }
 
@@ -527,6 +527,14 @@ button {
   overflow: hidden;
 }
 
+.dish-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #f3e7d6;
+}
+
 .quantity-control {
   display: inline-flex;
   align-items: center;
@@ -570,9 +578,9 @@ button {
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
-  min-height: 210px;
+  min-height: 180px;
   gap: 12px;
-  align-items: end;
+  align-items: center;
   padding: 14px 14px 14px 20px;
 }
 
@@ -918,6 +926,10 @@ button {
   .menu-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .dish-image {
+    height: 210px;
   }
 
   .qr-gate h1 {

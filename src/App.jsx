@@ -5,7 +5,7 @@ import CategoryTabs from "./components/CategoryTabs.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import MenuCard from "./components/MenuCard.jsx";
-import { fallbackData } from "./data/fallback.js";
+import { fallbackData, getMenuImage } from "./data/fallback.js";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -32,7 +32,10 @@ export default function App() {
     fetch(`${API_URL}/menu?category=${activeCategory}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(response)))
       .then((nextData) => {
-        if (!ignore) setData({ ...nextData, dietaryFilters: fallbackData.dietaryFilters });
+        if (!ignore) {
+          const items = nextData.items.map((item) => ({ ...item, image: getMenuImage(item) }));
+          setData({ ...nextData, items, dietaryFilters: fallbackData.dietaryFilters });
+        }
       })
       .catch(() => {
         const items =

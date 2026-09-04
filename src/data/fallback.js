@@ -32,6 +32,59 @@ const descriptions = {
   combos: "A generous cafe pairing made for sharing and enjoying together."
 };
 
+const imagePath = (name) => `/menu-images/${name}.webp`;
+
+const itemImages = {
+  "chicken-dum-biryani": imagePath("chicken-biryani"),
+  "chicken-masala": imagePath("chicken-curry"),
+  "mutton-dum-biryani": imagePath("mutton-biryani"),
+  "masala-maggi": imagePath("maggi"),
+  "chicken-chilli": imagePath("chilli-chicken"),
+  "paneer-chilli": imagePath("chilli-paneer"),
+  "lachha-paratha-chilli-paneer": imagePath("lachha-paratha"),
+  "chicken-sandwich": imagePath("grilled-sandwich"),
+  "chicken-drumstick": imagePath("chicken-drumstick"),
+  "chicken-pakoda": imagePath("chicken-pakoda"),
+  "veg-sandwich": imagePath("veg-sandwich"),
+  "chicken-kadai": imagePath("chicken-chilli-platter"),
+  "crispy-chicken-fizzy-meal": imagePath("crispy-chicken-strips"),
+  "chicken-lollipop": imagePath("chicken-lollipop"),
+  "sukha-chicken-wings": imagePath("fried-chicken"),
+  "chicken-manchurian-momo": imagePath("chicken-manchurian"),
+  "chicken-fried-rice-chicken-manchurian": imagePath("chicken-fried-rice"),
+  "veg-fried-rice-veg-manchurian": imagePath("veg-fried-rice"),
+  "chicken-noodles-chilli-chicken": imagePath("chilli-chicken-bowl"),
+  "chicken-noodles": imagePath("chicken-noodles"),
+  "chicken-patty-burger": imagePath("chicken-burger"),
+  "veg-burger": imagePath("veg-burger"),
+  "mixed-noodles": imagePath("mixed-noodles"),
+  "veg-momo-6-pcs": imagePath("steamed-momo"),
+  "veg-noodles": imagePath("veg-noodles"),
+  "veg-fried-momo-6-pcs": imagePath("fried-momo"),
+  "crispy-chicken-momo-pepsi-fries": imagePath("crispy-chicken"),
+  "chicken-fried-momo": imagePath("momo-platter"),
+  "paneer-makhani-momo": imagePath("momo-basket"),
+  "paneer-kurkure-momo": imagePath("paneer-kurkure-momo"),
+  "kebab-roll": imagePath("chicken-kebab"),
+  "tandoori-chicken-burger": imagePath("tandoori-chicken")
+};
+
+export function getMenuImage({ id, name, category, type }) {
+  if (itemImages[id]) return itemImages[id];
+  if (category.includes("momo")) return imagePath(type === "veg" ? "steamed-momo" : "momo-platter");
+  if (category.includes("noodles")) return imagePath(type === "veg" ? "veg-noodles" : "chicken-noodles");
+  if (category.includes("rice")) return imagePath(type === "veg" ? "veg-fried-rice" : "chicken-fried-rice");
+  if (category.includes("burger")) return imagePath(type === "veg" ? "veg-burger" : "chicken-burger");
+  if (category.includes("sandwich")) return imagePath(type === "veg" ? "veg-sandwich" : "grilled-sandwich");
+  if (category === "bread-maggi") return imagePath(name.includes("Maggi") ? "maggi" : "grilled-sandwich");
+  if (category === "main-course") return imagePath(type === "veg" ? "chilli-paneer" : "chicken-curry");
+  if (category === "biryani") return imagePath(name.includes("Mutton") ? "mutton-biryani" : "chicken-biryani");
+  if (category === "rolls") return imagePath("chicken-kebab");
+  if (category === "paratha-combo") return imagePath("lachha-paratha");
+  if (category === "chicken-starters") return imagePath("fried-chicken");
+  return imagePath(type === "veg" ? "veg-noodles" : "chicken-curry");
+}
+
 const items = [
   ["veg-momo-6-pcs", "Veg Momo (6 pcs)", "momo", 100, "veg"],
   ["veg-fried-momo-6-pcs", "Veg Fried Momo (6 pcs)", "momo", 120, "veg"],
@@ -128,6 +181,7 @@ const items = [
   category,
   price,
   type,
+  image: getMenuImage({ id, name, category, type }),
   description: descriptions[category] || "A freshly prepared cafe favourite made to order."
 }));
 
